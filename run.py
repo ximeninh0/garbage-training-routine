@@ -4,13 +4,20 @@ import torch
 model = YOLO("yolo11s.pt")
 file = "data.yaml"
 
+print(f"Torch Version: {torch.__version__}")
+print(f"CUDA Version: {torch.version.cuda}")
+print(f"CUDA Available: {torch.cuda.is_available()}")
+
+if torch.cuda.is_available():
+    print(f"Device Name: {torch.cuda.get_device_name(0)}")
+
 if __name__ == "__main__":
     results = model.train(        
         data=file,
         
-        workers=6,       
+        workers=2,       
         device=[0],     
-        batch=12,         
+        batch=8,         
         imgsz=512,       
         
         epochs=150,     
