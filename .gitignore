@@ -1,4 +1,5 @@
 dataset
 venv
-**.pt
-runs
+yolo11m.pt
+yolo11s.pt
+yolo26n.pt
